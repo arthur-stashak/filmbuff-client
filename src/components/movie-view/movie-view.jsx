@@ -4,7 +4,6 @@ export class MovieView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [...],
       selectedMovie: null
     };
   }
