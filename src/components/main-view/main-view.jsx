@@ -11,7 +11,8 @@ export class MainView extends React.Component {
         { _id: 1, Title: 'The Shawshank Redemption', Description: 'desc1...', ImagePath: '...' },
         { _id: 2, Title: 'The Lord of the Rings Trilogy', Description: 'desc2...', ImagePath: '...' },
         { _id: 3, Title: 'The Dark Knight', Description: 'desc3...', ImagePath: '...' }
-      ]
+      ],
+      selectedMovie: null
     }
   }
 
