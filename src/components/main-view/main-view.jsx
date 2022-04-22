@@ -10,7 +10,7 @@ export class MainView extends React.Component {
       movies: [
         { _id: 1, Title: 'The Shawshank Redemption', Description: 'desc1...', ImagePath: '...' },
         { _id: 2, Title: 'The Lord of the Rings Trilogy', Description: 'desc2...', ImagePath: '...' },
-        { _id: 3, Title: 'The Dark Knight', Description: 'desc3...', ImagePath: '...' }
+        { _id: 3, Title: 'The Dark Knight', Description: 'desc3...', ImagePath: 'src/components/main-view/img/the-dark-knight.jpg' }
       ],
       selectedMovie: null
     }
@@ -24,6 +24,8 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie } = this.state;
+
+    if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
 
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
