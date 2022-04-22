@@ -1,17 +1,9 @@
 import React from 'react';
 
 export class MovieView extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      selectedMovie: null
-    };
-  }
-
-
 
   render() {
-    const { movie } = this.props;
+    const { movie, onBackClick } = this.props;
 
     return (
       <div className="movie-view">
