@@ -2,3 +2,5 @@ node_modules
 .cache
 .parcel-cache
 .DS_Store
+es5
+es6
