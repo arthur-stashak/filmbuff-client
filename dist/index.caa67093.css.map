@@ -1,1 +1,1 @@
-{"mappings":"AAEA;EACE,OAHM","sources":["src/index.scss"],"sourcesContent":["$color: steelblue;\n\n.film-buff {\n  color: $color;\n}"],"names":[],"version":3,"file":"index.caa67093.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":"AAUA;EACE,OAXM","sources":["src/index.scss"],"sourcesContent":["$color: steelblue;\n$font-stack: Helvetica,\nsans-serif;\n$primary-color: #333;\n\n\n\n\n\n\n.film-buff {\n  color: $color;\n}"],"names":[],"version":3,"file":"index.caa67093.css.map","sourceRoot":"/__parcel_source_root/"}

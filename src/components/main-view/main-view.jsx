@@ -13,8 +13,9 @@ export class MainView extends React.Component {
         { _id: 3, Title: 'The Dark Knight', Description: 'desc3...', ImagePath: 'src/components/main-view/img/the-dark-knight.jpg' }
       ],
       selectedMovie: null
-    }
+    };
   }
+
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({
@@ -24,8 +25,6 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie } = this.state;
-
-    if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
 
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
@@ -41,6 +40,9 @@ export class MainView extends React.Component {
       </div>
     );
   }
-
 }
+
+
+
+
 export default MainView;
