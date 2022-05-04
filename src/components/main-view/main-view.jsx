@@ -1,19 +1,28 @@
 import React from 'react';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import axios from 'axios';
 
 export class MainView extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      movies: [
-        { _id: 1, Title: 'The Shawshank Redemption', Description: 'desc1...', ImagePath: '...' },
-        { _id: 2, Title: 'The Lord of the Rings Trilogy', Description: 'desc2...', ImagePath: '...' },
-        { _id: 3, Title: 'The Dark Knight', Description: 'desc3...', ImagePath: 'src/components/main-view/img/the-dark-knight.jpg' }
-      ],
+      movies: [],
       selectedMovie: null
     };
+  }
+
+  componentDidMount() {
+    axios.get('https://filmbuffed.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 
@@ -26,15 +35,14 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie } = this.state;
 
-
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <div className="main-view">
         {selectedMovie
           ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
           : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
           ))
         }
       </div>
