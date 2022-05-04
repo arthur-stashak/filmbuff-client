@@ -18,8 +18,8 @@
   "homepage": "https://github.com/arthur-stashak/filmbuff-client#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "sass": "^1.51.0"
   },
   "devDependencies": {
