@@ -65,7 +65,15 @@ export class MainView extends React.Component {
 
 }
 
-
-
+MainView.propTypes = {
+  movies: PropTypes.shape({
+    movies: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired
+  }).isRequired,
+  user: PropTypes.func.isRequired,
+  selectedMovie: PropTypes.func.isRequired,
+  onMovieClick: PropTypes.func.isRequired,
+  onBackClick: PropTypes.func.isRequired
+};
 
 export default MainView;
