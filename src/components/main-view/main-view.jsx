@@ -3,6 +3,8 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegView } from '../registration-view.scss/registration-view';
+import './main-view.scss'
 
 
 export class MainView extends React.Component {
@@ -75,5 +77,11 @@ MainView.propTypes = {
   onMovieClick: PropTypes.func.isRequired,
   onBackClick: PropTypes.func.isRequired
 };
+
+<Link to="../registration-view.scss/registration-view">
+  <button class="button" type="button">
+    Register Here!
+  </button>
+</Link>
 
 export default MainView;
