@@ -13,11 +13,11 @@ export class MovieView extends React.Component {
         </div>
         <div className="movie-title">
           <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
+          <span className="value">{movie.title}</span>
         </div>
         <div className="movie-description">
           <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
+          <span className="value">{movie.description}</span>
         </div>
         <button onClick={() => { onBackClick(null); }}>Back</button>
 
@@ -28,9 +28,9 @@ export class MovieView extends React.Component {
 
 MovieView.propTypes = {
   movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
 };

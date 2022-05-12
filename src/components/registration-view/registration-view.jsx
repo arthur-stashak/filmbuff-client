@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { LoginView } from '../login-view/login-view';
 
 export function RegView(props) {
   const [username, setUsername] = useState('');
@@ -10,9 +11,7 @@ export function RegView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    //axios post request
   };
 
   return (
@@ -40,11 +39,11 @@ export function RegView(props) {
 
 RegView.propTypes = {
   form: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    birthday: PropTypes.string.isRequired
-  }).isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
+    username: PropTypes.string,
+    password: PropTypes.string,
+    email: PropTypes.string,
+    birthday: PropTypes.string
+  }),
+  handleSubmit: PropTypes.func,
+  onClick: PropTypes.func
 };
