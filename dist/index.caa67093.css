@@ -1,5 +1,17 @@
-.film-buff {
-  color: steelblue;
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #345456;
+}
+
+button {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+  background-color: #345456;
+}
+button:hover {
+  transform: scale(0.98);
 }
 body {
   font: 100% Helvetica, sans-serif;

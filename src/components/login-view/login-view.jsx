@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { RegView } from '../registration-view/registration-view';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,19 +15,23 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
-  return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
-  );
+  return isLoggingIn
+    ? (
+      <form>
+        <label>
+          Username:
+          <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        </label>
+        <label>
+          Password:
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        </label>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
+        <button type="button" onClick={() => setIsLoggingIn(false)}>Register Here! </button>
+      </form>
+    )
+    : <RegView />
+
 }
 
 LoginView.propTypes = {
