@@ -1,13 +1,23 @@
-$color: steelblue;
 $font-stack: Helvetica,
-sans-serif;
-$primary-color: #333;
+  sans-serif;
+$primary-color: #345456;
+$secondary-color: #fff;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
 
 
 
+button {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+  background-color: $primary-color;
 
-
-
-.film-buff {
-  color: $color;
+  &:hover {
+    transform: scale(.98);
+  }
 }
