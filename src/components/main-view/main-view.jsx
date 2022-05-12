@@ -3,8 +3,9 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { RegView } from '../registration-view.scss/registration-view';
-import './main-view.scss'
+import { RegView } from '../registration-view/registration-view';
+import PropTypes from 'prop-types';
+import './main-view.scss';
 
 
 export class MainView extends React.Component {
@@ -31,9 +32,9 @@ export class MainView extends React.Component {
   }
 
 
-  setSelectedMovie(movie) {
+  setSelectedMovie(newSelectedMovie) {
     this.setState({
-      selectedMovie: movie
+      selectedMovie: newSelectedMovie
     });
   }
 
@@ -44,7 +45,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, newSelectedMovie, user } = this.state;
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
@@ -52,13 +53,14 @@ export class MainView extends React.Component {
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
 
+
+
     return (
       <div className="main-view">
-        {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
         {selectedMovie
           ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
           : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
           ))
         }
       </div>
@@ -78,10 +80,6 @@ MainView.propTypes = {
   onBackClick: PropTypes.func.isRequired
 };
 
-<Link to="../registration-view.scss/registration-view">
-  <button class="button" type="button">
-    Register Here!
-  </button>
-</Link>
+
 
 export default MainView;
